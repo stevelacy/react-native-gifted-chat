@@ -132,7 +132,7 @@ export default class Message extends React.Component<MessageProps> {
     if (
       user &&
       currentMessage &&
-      user._id === currentMessage.user._id &&
+      user.id === currentMessage.user.id &&
       !this.props.showUserAvatar
     ) {
       return null

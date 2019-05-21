@@ -225,9 +225,9 @@ export default class MessageContainer extends React.PureComponent<
   }
 
   renderRow = ({ item, index }: ListRenderItemInfo<IMessage>) => {
-    if (!item._id && item._id !== 0) {
+    if (!item.id && item.id !== 0) {
       console.warn(
-        'GiftedChat: `_id` is missing for message',
+        'GiftedChat: `id` is missing for message',
         JSON.stringify(item),
       )
     }
@@ -238,7 +238,7 @@ export default class MessageContainer extends React.PureComponent<
           JSON.stringify(item),
         )
       }
-      item.user = { _id: 0 }
+      item.user = { id: 0 }
     }
     const { messages, user, ...restProps } = this.props
     if (messages && user) {
@@ -247,11 +247,11 @@ export default class MessageContainer extends React.PureComponent<
 
       const messageProps: Message['props'] = {
         ...restProps,
-        key: item._id,
+        key: item.id,
         currentMessage: item,
         previousMessage,
         nextMessage,
-        position: item.user._id === user._id ? 'right' : 'left',
+        position: item.user.id === user.id ? 'right' : 'left',
       }
 
       if (this.props.renderMessage) {
@@ -291,7 +291,7 @@ export default class MessageContainer extends React.PureComponent<
     return scrollToBottomComponent
   }
 
-  keyExtractor = (item: IMessage) => `${item._id}`
+  keyExtractor = (item: IMessage) => `${item.id}`
 
   render() {
     if (
