@@ -27,7 +27,7 @@
   "scripts": {
     "lint": "tslint --project .",
     "tsc": "node_modules/.bin/tsc --noEmit",
-    "build": "rm -rf lib/ && node_modules/.bin/tsc",
+    "build": "rm -rf lib/ && node_modules/.bin/tsc && rm ./lib/*.ts && rm ./lib/*.map",
     "precommit": "yarn lint",
     "test": "TZ=Europe/Paris jest --no-watchman",
     "test:watch": "TZ=Europe/Paris jest --watch",
