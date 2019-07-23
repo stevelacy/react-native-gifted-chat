@@ -225,9 +225,9 @@ export default class MessageContainer<
   }
 
   renderRow = ({ item, index }: ListRenderItemInfo<TMessage>) => {
-    if (!item._id && item._id !== 0) {
+    if (!item.id && item.id !== 0) {
       console.warn(
-        'GiftedChat: `_id` is missing for message',
+        'GiftedChat: `id` is missing for message',
         JSON.stringify(item),
       )
     }
@@ -238,7 +238,7 @@ export default class MessageContainer<
           JSON.stringify(item),
         )
       }
-      item.user = { _id: 0 }
+      item.user = { id: 0 }
     }
     const { messages, user, ...restProps } = this.props
     if (messages && user) {
@@ -248,11 +248,11 @@ export default class MessageContainer<
       const messageProps: Message['props'] = {
         ...restProps,
         user,
-        key: item._id,
+        key: item.id,
         currentMessage: item,
         previousMessage,
         nextMessage,
-        position: item.user._id === user._id ? 'right' : 'left',
+        position: item.user.id === user.id ? 'right' : 'left',
       }
 
       if (this.props.renderMessage) {
@@ -290,7 +290,7 @@ export default class MessageContainer<
     )
   }
 
-  keyExtractor = (item: TMessage) => `${item._id}`
+  keyExtractor = (item: TMessage) => `${item.id}`
 
   render() {
     if (

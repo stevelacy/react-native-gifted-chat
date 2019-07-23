@@ -370,7 +370,7 @@ export default class Bubble<
     if (renderTicks && currentMessage) {
       return renderTicks(currentMessage)
     }
-    if (currentMessage && user && currentMessage.user._id !== user._id) {
+    if (currentMessage && user && currentMessage.user.id !== user.id) {
       return null
     }
     if (
@@ -413,7 +413,7 @@ export default class Bubble<
   renderUsername() {
     const { currentMessage, user } = this.props
     if (this.props.renderUsernameOnMessage && currentMessage) {
-      if (user && currentMessage.user._id === user._id) {
+      if (user && currentMessage.user.id === user.id) {
         return null
       }
       return (

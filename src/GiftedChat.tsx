@@ -52,7 +52,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   initialText?: string
   /* Placeholder when text is empty; default is 'Type a message...' */
   placeholder?: string
-  /* User sending the messages: { _id, name, avatar } */
+  /* User sending the messages: { id, name, avatar } */
   user?: User
   /*  Locale to localize the dates */
   locale?: string
@@ -222,7 +222,6 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     textInputProps: {},
     listViewProps: {},
     renderCustomView: null,
-    isCustomViewBottom: false,
     renderDay: null,
     renderTime: null,
     renderFooter: null,
@@ -622,7 +621,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
         ...message,
         user: this.props.user!,
         createdAt: new Date(),
-        _id: this.props.messageIdGenerator && this.props.messageIdGenerator(),
+        id: this.props.messageIdGenerator && this.props.messageIdGenerator(),
       }
     })
 

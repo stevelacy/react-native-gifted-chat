@@ -27,6 +27,6 @@ export function isSameUser(
     diffMessage &&
     diffMessage.user &&
     currentMessage.user &&
-    diffMessage.user._id === currentMessage.user._id
+    diffMessage.user.id === currentMessage.user.id
   )
 }
