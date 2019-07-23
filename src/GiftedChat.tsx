@@ -348,7 +348,7 @@ class GiftedChat extends React.Component<GiftedChatProps, GiftedChatState> {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { messages, text } = this.props
     this.setIsMounted(true)
     this.initLocale()
