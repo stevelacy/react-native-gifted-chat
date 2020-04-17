@@ -65,7 +65,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   placeholder?: string
   /* Makes the composer not editable*/
   disableComposer?: boolean
-  /* User sending the messages: { _id, name, avatar } */
+  /* User sending the messages: { id, name, avatar } */
   user?: User
   /*  Locale to localize the dates */
   locale?: string
@@ -663,7 +663,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
         ...message,
         user: this.props.user!,
         createdAt: new Date(),
-        _id: this.props.messageIdGenerator && this.props.messageIdGenerator(),
+        id: this.props.messageIdGenerator && this.props.messageIdGenerator(),
       }
     })
 
